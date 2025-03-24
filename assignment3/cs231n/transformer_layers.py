@@ -40,7 +40,7 @@ class PositionalEncoding(nn.Module):
 
         mask = (torch.arange(embed_dim) % 2 == 0).view(1, -1)
         exponent = (torch.arange(embed_dim) // 2 * 2).view(1, -1)
-        pe[1, :, :] = torch.sin(torch.arange(max_len).view(-1, 1) * 10000 ** (-exponent / embed_dim)) * mask + torch.cos(torch.arange(max_len).view(-1, 1)  * 10000 **(-exponent / embed_dim)) * (mask == 0) 
+        pe[0, :, :] = torch.sin(torch.arange(max_len).view(-1, 1) * 10000 ** (-exponent / embed_dim)) * mask + torch.cos(torch.arange(max_len).view(-1, 1)  * 10000 **(-exponent / embed_dim)) * (mask == 0) 
 
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         ############################################################################

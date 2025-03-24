@@ -108,7 +108,7 @@ def rnn_step_backward(dnext_h, cache):
 
     # next_h = np.tanh(x.dot(Wx) + prev_h.dot(Wh) + b)
     x, prev_h, next_h, Wx, Wh, b = cache
-    tmp = (1 - dnext_h**2) * dnext_h
+    tmp = (1 - next_h**2) * dnext_h
     db = np.sum(tmp, axis=0)
     dx = tmp.dot(Wx.T)
     dWx = x.T.dot(tmp)
@@ -247,7 +247,7 @@ def word_embedding_forward(x, W):
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
     out = W[x]
-    cache = (W, x)
+    cache = W, x
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ##############################################################################

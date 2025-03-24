@@ -147,7 +147,7 @@ class CaptioningRNN:
         # in your implementation, if needed.                                       #
         ############################################################################
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-        
+
         h0, cache0 = affine_forward(features, W_proj, b_proj)
         captions_in_embed, cache1 = word_embedding_forward(captions_in, W_embed)
         if self.cell_type == "rnn":
@@ -238,7 +238,6 @@ class CaptioningRNN:
             captions.append(caption_out.reshape(N, -1))
             caption_in, _ = word_embedding_forward(caption_out, W_embed)
         captions = np.concatenate(captions, axis=1)
-            
 
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         ############################################################################
